@@ -1,0 +1,105 @@
+
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>Activities</title>
+
+
+  </head>
+
+  <body style="background-color: #CDDCDC;
+ background-image: radial-gradient(at 50% 100%, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%), linear-gradient(to bottom, rgba(255,255,255,0.25) 0%, rgba(0,0,0,0.25) 100%);
+ background-blend-mode: screen, overlay;"
+>"
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+
+          <a class="navbar-brand" href="#">Christ Club </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url_for('home_page')}}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Activites</a>
+                </li>
+              </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('contact_page')}}">Contacte</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('add_user')}}">Devenir Membre</a>
+                </li>
+            </ul>
+          </div>
+        </nav>
+      <div class="jac-table">
+            <table class="table">
+            <thead>
+                <tr>
+                    <!-- Your Columns HERE -->
+                    <th scope="col">Jour</th>
+                    <th scope="col">Heure</th>
+                    <th scope="col">Theme</th>
+                    <th scope="col">Platform</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+            {% for item in items  %}
+                    <tr>
+                        <td>{{ item.Jour}}</td>
+                         <td>{{ item.Heure}}</td>
+
+                         <td>{{ item.Theme}}</td>
+                         <td>{{ item.Platform}}</td>
+                    </tr>
+            {% endfor %}
+                <!-- Your rows inside the table HERE: -->
+
+            </tbody>
+           </table>
+        </div>
+        <h1>Voici nos activites de la semaine<h1>
+            <img src="data:image/jpeg;base64,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" class="center"/>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    -->
+
+  </body>
+     <style>
+
+
+        .center {
+                  display: block;
+                  margin-left: auto;
+                  margin-right: auto;
+                  width: 50%;
+                }
+    </style>
+
+   </html>
